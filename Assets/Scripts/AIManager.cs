@@ -7,6 +7,7 @@ public class AIManager : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform target;
+    Vector3 moveDirection;
     public GameObject Target;
     void Start()
     {
@@ -16,6 +17,7 @@ public class AIManager : MonoBehaviour
 
     void Update()
     {
-        agent.SetDestination(target.position);
+        moveDirection = new Vector3(Random.Range(-90f, 90f), 0, 100f);
+        agent.SetDestination(moveDirection);
     }
 }
