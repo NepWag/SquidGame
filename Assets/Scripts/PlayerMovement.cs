@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Camera3;     // Winner Camera 
     public GameObject Controls;    // Controls of player
     public GameObject DisabledPanel;   // Disabled Panel
+    public bool GameStarted = true;
     public void Awake()
     {
         if(instance == null)
@@ -33,9 +34,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()  // Update the player movement
     {
+        if(GameStarted)
+        {
         Vector3 move = new Vector3(Joystick.instance.Horizontal, 0, Joystick.instance.Vertical);
+       
         controller.Move(move * Time.deltaTime * playerSpeed);
         move.Normalize();
+        
         if (move != Vector3.zero)
         {
             if(_IsMove == false)
@@ -54,10 +59,14 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         playeranim.SetFloat("Horizontal",Joystick.instance.Horizontal);
         playeranim.SetFloat("Vertical",Joystick.instance.Vertical);
+        };
     }
 
     public void OnPlayerDied()   // Onplayer Die
     {
+        TimeCount.instance.isTimer = false;
+        GameStarted = false;
+        DisabledPanel.SetActive(true);
         playeranim.SetBool("Died", true);
         playerskin.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Color", Color.white);
         StartCoroutine("GameOverCoroutine");
@@ -67,24 +76,28 @@ public class PlayerMovement : MonoBehaviour
     {    
         if (theCollision.gameObject.tag == "Finish")
         { 
+            _IsMove = false;
             Controls.SetActive(false);
             MoneyEffect.SetActive(true);
+            DisabledPanel.SetActive(true);
+            GameStarted = false;
             Camera3.SetActive(true);
             playeranim.SetBool("Dance", true);
             LeanTween.scale(CongratsPanel, new Vector3(1, 1, 1), 1f).setEase(LeanTweenType.pingPong).setDelay(4f);
+            TimeCount.instance.isTimer = false;
             Invoke("MoneyAdd",2f);
         }
     }
 
      void MoneyAdd()  // On Money Added
      {
-              MoneyManager.instance.AddMoney();
+         MoneyManager.instance.AddMoney();
      }
 
      IEnumerator GameOverCoroutine() // GameOver Count Down
      {
           DisabledPanel.SetActive(true);
-          yield return new WaitForSeconds(3f);
+          yield return new WaitForSeconds(2f);
           LeanTween.scale(TryAgainPanel, new Vector3(1, 1, 1), 1f).setEase(LeanTweenType.pingPong).setDelay(3f);
      }
 

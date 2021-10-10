@@ -10,7 +10,16 @@ public class TimeCount : MonoBehaviour
 {
     public GameObject textTimer;
     private float timer = 90f;
-    private bool isTimer = true;
+    public bool isTimer = true;
+    public static TimeCount instance;
+
+    public void Awake()
+    {
+         if(instance == null)
+         {
+              instance = this;
+         }
+    }
 
     void Update()
     {

@@ -33,13 +33,12 @@ public class GirlManager : MonoBehaviour
            girlCount.Play(); 
            Invoke("StartCheckPlayer",5f);
     }
-    void FixedUpdate()
+    void Update()
     {
          if(IsCheckActive == true && PlayerMovement.instance._IsMove == true)
          {
                 PlayerMovement.instance.OnPlayerDied(); 
-                IsCheckActive = false;
-                Debug.Log("dead");              
+                IsCheckActive = false;          
          }
     }
 
