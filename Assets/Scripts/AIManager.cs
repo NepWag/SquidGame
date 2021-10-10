@@ -17,7 +17,7 @@ public class AIManager : MonoBehaviour
 
     void Update()
     {
-        moveDirection = new Vector3(Random.Range(-90f, 90f), 0, 100f);
+        moveDirection = new Vector3(Random.Range(-100f, 100f), 0, 100f);
         agent.SetDestination(moveDirection);
     }
 }
