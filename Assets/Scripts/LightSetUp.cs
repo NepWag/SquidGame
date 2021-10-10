@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <Summary>
+/// Red and Green Light SetUp
+/// </Summary>
 public class LightSetUp : MonoBehaviour
 {
     public static LightSetUp instance;
@@ -16,7 +18,7 @@ public class LightSetUp : MonoBehaviour
 
     public List<GameObject> lights;
 
-    public void LightRedChange()
+    public void LightRedChange()  // Change into red light
     {
         foreach (var light in lights)
         {
@@ -24,7 +26,7 @@ public class LightSetUp : MonoBehaviour
         }
     }
 
-    public void LightGreenChange()
+    public void LightGreenChange()  // Change into green light
     {
         foreach (var light in lights)
         {

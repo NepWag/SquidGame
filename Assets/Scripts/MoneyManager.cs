@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+/// <Summary>
+/// Money Managing System
+/// </Summary>
 public class MoneyManager : MonoBehaviour
 {
     [SerializeField]
-    private int money;
+    private int money;  // Total Money
     private int randomMoney;
     public TMP_Text moneytext;
     public TMP_Text currentmoneytext;
@@ -16,7 +18,7 @@ public class MoneyManager : MonoBehaviour
     {
         if(instance == null)
         {
-            instance = this;
+             instance = this;
         }
     }
     void Start()
@@ -33,12 +35,12 @@ public class MoneyManager : MonoBehaviour
          moneytext.text = money + "";
     }
 
-    public void AddMoney()
+    public void AddMoney()   // Add the money in the balance
     {
-        randomMoney = Random.Range(200,300);
-        money += randomMoney;
-        PlayerPrefs.SetInt("Money",money);
-        currentmoneytext.text = randomMoney + "";
-        moneytext.text = money + "";
+         randomMoney = Random.Range(200,300);
+         money += randomMoney;
+         PlayerPrefs.SetInt("Money",money);
+         currentmoneytext.text = randomMoney + "";
+         moneytext.text = money + "";
     }
 }

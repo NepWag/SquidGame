@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+/// <Summary>
+/// Time Clock Counting
+/// </Summary>
 public class TimeCount : MonoBehaviour
 {
     public GameObject textTimer;
@@ -13,29 +16,29 @@ public class TimeCount : MonoBehaviour
     {
         if(isTimer)
         {
-             timer -= Time.deltaTime;
-             DisplayTime();
+                timer -= Time.deltaTime;
+                DisplayTime();
         }
 
-        if(timer < 0)
+        if(timer < 1)
         {
                 PlayerMovement.instance.GameOver();
                 isTimer = false;
         }
     }
 
-    void DisplayTime()
+    void DisplayTime()  // Display the time counting
     {
-         int minutes = Mathf.FloorToInt(timer / 60.0f);
-         int seconds = Mathf.FloorToInt(timer - minutes * 60);
-         textTimer.GetComponent<TextMesh>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
+           int minutes = Mathf.FloorToInt(timer / 60.0f);
+           int seconds = Mathf.FloorToInt(timer - minutes * 60);
+           textTimer.GetComponent<TextMesh>().text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-    public void StartTimer()
+    public void StartTimer()   // Start the time
     {
-         isTimer = true;
+           isTimer = true;
     }     
-    public void StopTimer()
+    public void StopTimer()   // Stop the time
     {
-         isTimer = false;
+           isTimer = false;
     }   
 }

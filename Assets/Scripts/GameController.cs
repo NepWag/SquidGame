@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <Summary>
+/// Game Manager :  Manages all the scripts
+/// </Summary>
 public class GameController : MonoBehaviour
 {
     private bool IsAudioOn;
@@ -14,7 +16,6 @@ public class GameController : MonoBehaviour
     public GameObject TryAgain;
     void Awake()
     {
-
          if(instance == null)
          {
               instance = this;
@@ -22,33 +23,33 @@ public class GameController : MonoBehaviour
          IsAudioOn = false;
          Invoke("CameraSwitch",0.5f);
     }
-    public void GoToHome()
+    public void GoToHome()  // Home Scene
     {
          SceneManager.LoadScene ("Main");
     }
-    public void TriggerSound()
+    public void TriggerSound()   // Sound Trigger
     {
          AudioListener.pause = !IsAudioOn;
          IsAudioOn = !IsAudioOn;
     }
-    public void CameraSwitch()
+    public void CameraSwitch()  // Blend the cameras
     {
          Camera1.SetActive(true);
          Camera2.SetActive(false);   
     }
 
-    public void StartGame()
+    public void StartGame()   // Start the game
     {
          SwipeOption.SetActive(false);
          JoyStick.SetActive(true);
     }
 
-    public void TryAgainFunc()
+    public void TryAgainFunc()   // TryAgain Panel On
     {
         TryAgain.SetActive(true);
     }
 
-    public void RestartGame()
+    public void RestartGame()   // Restart the game
     {
          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
