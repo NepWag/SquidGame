@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIManager : MonoBehaviour
-{    NavMeshAgent agent;
+public class EnemySix : MonoBehaviour
+{
+    NavMeshAgent agent;
     Transform target;
     Vector3 moveDirection;
     public GameObject Target;
@@ -14,7 +15,7 @@ public class AIManager : MonoBehaviour
     public bool _IsRun = false;
     public Animator enemyanim; 
     public GameObject enemyskin;
-    public static AIManager instance; 
+    public static EnemySix instance; 
     public bool OneTimeCheck = false;
     public bool IsWinTheGame = false;
     void Awake()
@@ -38,7 +39,7 @@ public class AIManager : MonoBehaviour
                  if(OneTimeCheck == false)
                  {
                          OneTimeCheck = true;
-                         int randomNo = Random.Range(0,3);
+                         int randomNo = Random.Range(0,4);
                          if(randomNo != 2)
                          {
                                  AiIdle();
@@ -73,7 +74,7 @@ public class AIManager : MonoBehaviour
              enemyanim.SetBool("AiRun", true);
              enemyanim.SetBool("AiIdle", false);
              gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-             moveDirection = new Vector3(8f, 0, 17f);
+             moveDirection = new Vector3(6f, 0, 17f);
              agent.SetDestination(moveDirection);
     }
 
@@ -100,6 +101,7 @@ public class AIManager : MonoBehaviour
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             enemyanim.SetBool("AiDance", true);
             IsWinTheGame = true;
+            RankManager.instance.RankUp();
         }
     }
 }

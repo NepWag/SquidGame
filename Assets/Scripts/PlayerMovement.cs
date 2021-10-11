@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 /// <Summary>
 /// Player Movement : Move of player through joystick
 /// </Summary>
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Camera3;     // Winner Camera 
     public GameObject Controls;    // Controls of player
     public GameObject DisabledPanel;   // Disabled Panel
+    public TMP_Text Ranktext;
     public bool GameStarted = true;
     public void Awake()
     {
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
             instance = this;
         }
         _IsMove = false;
+        Invoke("DisablePanel",3f);
     }
 
     void Update()  // Update the player movement
@@ -37,15 +40,18 @@ public class PlayerMovement : MonoBehaviour
         if(GameStarted)
         {
         Vector3 move = new Vector3(Joystick.instance.Horizontal, 0, Joystick.instance.Vertical);
-       
         controller.Move(move * Time.deltaTime * playerSpeed);
         move.Normalize();
         
         if (move != Vector3.zero)
         {
+            if( TimeCount.instance.CanCount == false)
+            {
+                 TimeCount.instance.CanCount = true;
+            }
             if(_IsMove == false)
             {
-                _IsMove = true;
+                 _IsMove = true;
             }
             gameObject.transform.forward = move;
         }
@@ -60,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
         playeranim.SetFloat("Horizontal",Joystick.instance.Horizontal);
         playeranim.SetFloat("Vertical",Joystick.instance.Vertical);
         };
+    }
+
+    public void DisablePanel()
+    {
+        DisabledPanel.SetActive(false);
     }
 
     public void OnPlayerDied()   // Onplayer Die
@@ -79,13 +90,14 @@ public class PlayerMovement : MonoBehaviour
             _IsMove = false;
             Controls.SetActive(false);
             MoneyEffect.SetActive(true);
-            DisabledPanel.SetActive(true);
             GameStarted = false;
             Camera3.SetActive(true);
             playeranim.SetBool("Dance", true);
             LeanTween.scale(CongratsPanel, new Vector3(1, 1, 1), 1f).setEase(LeanTweenType.pingPong).setDelay(4f);
             TimeCount.instance.isTimer = false;
             Invoke("MoneyAdd",2f);
+            RankManager.instance.RankUp();
+            Ranktext.text = RankManager.instance.rank + "";
         }
     }
 
@@ -96,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
 
      IEnumerator GameOverCoroutine() // GameOver Count Down
      {
-          DisabledPanel.SetActive(true);
           yield return new WaitForSeconds(2f);
           LeanTween.scale(TryAgainPanel, new Vector3(1, 1, 1), 1f).setEase(LeanTweenType.pingPong).setDelay(3f);
      }

@@ -7,7 +7,6 @@ using UnityEngine;
 public class LightSetUp : MonoBehaviour
 {
     public static LightSetUp instance;
-    public GameObject CheckLight;
     void Awake()
     {
         if(instance == null)

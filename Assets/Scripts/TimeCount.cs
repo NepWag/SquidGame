@@ -9,9 +9,12 @@ using UnityEngine.UI;
 public class TimeCount : MonoBehaviour
 {
     public GameObject textTimer;
+    [SerializeField]
     private float timer = 90f;
-    public bool isTimer = true;
+    public bool isTimer = false;
+    public bool CanCount = false;
     public static TimeCount instance;
+    public bool IsTimeBegin = false;
 
     public void Awake()
     {
@@ -23,8 +26,12 @@ public class TimeCount : MonoBehaviour
 
     void Update()
     {
-        if(isTimer)
+        if(isTimer == true && CanCount == true)
         {
+             if(IsTimeBegin == false)
+             {
+                  IsTimeBegin = true;
+             }
                 timer -= Time.deltaTime;
                 DisplayTime();
         }

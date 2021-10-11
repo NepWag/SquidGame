@@ -15,6 +15,7 @@ public class GirlManager : MonoBehaviour
     public AudioSource girlCount;   // Counting Audio
     public AudioSource GunSound;   // Gun Audio
     public static GirlManager instance;
+    public bool _IsGirlActiveForAI = false;
     public void Awake()
     {
          if(instance == null)
@@ -55,7 +56,11 @@ public class GirlManager : MonoBehaviour
     void RotateHead()  // Rotating head of robot
     {
         if(girl.transform.localRotation.eulerAngles.y > 180)
-        {
+        {       
+               if( _IsGirlActiveForAI == false)
+               {
+                     _IsGirlActiveForAI = true;
+               }
                 LightSetUp.instance.LightRedChange();
                 girl.transform.Rotate(0f, -10f, 0f, Space.Self);
         }   
@@ -102,6 +107,7 @@ public class GirlManager : MonoBehaviour
 
     void TurnBack()  // Turn Back On Checking Player
     {
+           _IsGirlActiveForAI = false;
            girlCount.Play();
            IsCheckActive = false;
            LightSetUp.instance.LightGreenChange();
