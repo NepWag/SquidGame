@@ -74,7 +74,7 @@ public class EnemyEight: MonoBehaviour
              enemyanim.SetBool("AiRun", true);
              enemyanim.SetBool("AiIdle", false);
              gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-             moveDirection = new Vector3(7f, 0, 17f);
+             moveDirection = new Vector3(3f, 0, 17f);
              agent.SetDestination(moveDirection);
     }
 

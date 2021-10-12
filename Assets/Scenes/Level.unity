@@ -15262,7 +15262,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.09189008, y: 0, z: 0, w: 0.9957692}
+  m_LocalRotation: {x: 0.09189009, y: 0, z: 0, w: 0.9957692}
   m_LocalPosition: {x: 0, y: 1.8, z: 11.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -15633,7 +15633,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90363366}
-        m_MethodName: RestartGame
+        m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17593,7 +17593,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227390017}
-  m_LocalRotation: {x: 0.09189008, y: 0, z: 0, w: 0.9957692}
+  m_LocalRotation: {x: 0.09189009, y: 0, z: 0, w: 0.9957692}
   m_LocalPosition: {x: 0, y: 1.8, z: 11.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -27370,7 +27370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047635404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.034, y: -0.864, z: 16.74}
+  m_LocalPosition: {x: 0.034, y: -0.864, z: 17.04}
   m_LocalScale: {x: 22.043118, y: 2.461392, z: 3.8239312}
   m_Children: []
   m_Father: {fileID: 0}

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;  // Player Controller
     private Vector3 playerVelocity;   // Player Velocity
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;   // Speed of player
+    private float playerSpeed;   // Speed of player
     public Animator playeranim;   // Animator Controller
     public bool _IsMove;
     public GameObject playerskin;    // Skin Change into white after gameOver
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         }
         _IsMove = false;
         Invoke("DisablePanel",3f);
+        playerSpeed = PlayerPrefs.GetFloat("PlayerSpeed");
     }
 
     void Update()  // Update the player movement
@@ -98,7 +99,13 @@ public class PlayerMovement : MonoBehaviour
             Invoke("MoneyAdd",2f);
             RankManager.instance.RankUp();
             Ranktext.text = RankManager.instance.rank + "";
+            LevelAdd();
         }
+    }
+    public void LevelAdd()
+    {
+        int gameLevel = PlayerPrefs.GetInt("GameLevel");
+        PlayerPrefs.SetInt("GameLevel",2);
     }
 
      void MoneyAdd()  // On Money Added

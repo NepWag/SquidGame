@@ -74,7 +74,7 @@ public class EnemySix : MonoBehaviour
              enemyanim.SetBool("AiRun", true);
              enemyanim.SetBool("AiIdle", false);
              gameObject.GetComponent<NavMeshAgent>().isStopped = false;
-             moveDirection = new Vector3(6f, 0, 17f);
+             moveDirection = new Vector3(-4f, 0, 17f);
              agent.SetDestination(moveDirection);
     }
 
