@@ -39,7 +39,7 @@ public class EnemyNine: MonoBehaviour
                  if(OneTimeCheck == false)
                  {
                          OneTimeCheck = true;
-                         int randomNo = Random.Range(0,9);
+                         int randomNo = Random.Range(0,8);
                          if(randomNo != 2)
                          {
                                  AiIdle();

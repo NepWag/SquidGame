@@ -37,10 +37,17 @@ public class MoneyManager : MonoBehaviour
 
     public void AddMoney()   // Add the money in the balance
     {
-         randomMoney = Random.Range(100,300);
+         randomMoney = Random.Range(200,500);
          money += randomMoney;
          PlayerPrefs.SetInt("Money",money);
          currentmoneytext.text = randomMoney + "";
+         moneytext.text = money + "";
+    }
+
+    public void RewardedMoney()
+    {
+         money += 1500;
+         PlayerPrefs.SetInt("Money",money);
          moneytext.text = money + "";
     }
 }

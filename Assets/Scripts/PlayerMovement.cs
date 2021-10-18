@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         Invoke("DisablePanel",3f);
         playerSpeed = PlayerPrefs.GetFloat("PlayerSpeed");
     }
+    public void Start()
+    {
+        AdManager.instance.RequestInterstitial();
+    }
 
     void Update()  // Update the player movement
     {
@@ -100,12 +104,17 @@ public class PlayerMovement : MonoBehaviour
             RankManager.instance.RankUp();
             Ranktext.text = RankManager.instance.rank + "";
             LevelAdd();
+            Invoke("ShowIntersistialAds",2f);
         }
+    }
+    public void ShowIntersistialAds()
+    {
+        AdManager.instance.ShowInterstitialAd();
     }
     public void LevelAdd()
     {
         int gameLevel = PlayerPrefs.GetInt("GameLevel");
-        PlayerPrefs.SetInt("GameLevel",2);
+        PlayerPrefs.SetInt("GameLevel",gameLevel + 1);
     }
 
      void MoneyAdd()  // On Money Added

@@ -54,6 +54,8 @@ public class MainUi : MonoBehaviour
          moneytext.text = money + "";
          DisplayUpgradeSpeed();
          DisplayGameLevel();
+         AdManager.instance.RequestBanner();
+         AdManager.instance.ShowBannerAD();
     }
 
     public void IncreaseSpeed()

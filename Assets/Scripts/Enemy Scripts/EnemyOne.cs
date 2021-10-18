@@ -39,7 +39,7 @@ public class EnemyOne : MonoBehaviour
                  if(OneTimeCheck == false)
                  {
                          OneTimeCheck = true;
-                         int randomNo = Random.Range(0,9);
+                         int randomNo = Random.Range(0,6);
                          if(randomNo != 2)
                          {
                                  AiIdle();
