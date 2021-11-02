@@ -98,4 +98,64 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 30.unity
     guid: 510ecdea364b8304fa3878068ab2276f
+  - enabled: 1
+    path: Assets/Scenes/Level 31.unity
+    guid: fbfc2f26c2a661c4e998e60b61f39dfa
+  - enabled: 1
+    path: Assets/Scenes/Level 32.unity
+    guid: 58209242341a7564aac5576134130d6c
+  - enabled: 1
+    path: Assets/Scenes/Level 33.unity
+    guid: 4334ea9c1080ddc4eb4df7fb4e37bca5
+  - enabled: 1
+    path: Assets/Scenes/Level 34.unity
+    guid: 37bba7d1dec00b142b051d4ff6bb3a82
+  - enabled: 1
+    path: Assets/Scenes/Level 35.unity
+    guid: aa9c577f0fe774440b1070620231a227
+  - enabled: 1
+    path: Assets/Scenes/Level 36.unity
+    guid: 44d547501d139f344bfc23880b460256
+  - enabled: 1
+    path: Assets/Scenes/Level 37.unity
+    guid: c5f5b3d65773ebf4ba97bb8c0c079f4c
+  - enabled: 1
+    path: Assets/Scenes/Level 38.unity
+    guid: 2fdc2a198750cd5408a9941b9cc5faee
+  - enabled: 1
+    path: Assets/Scenes/Level 39.unity
+    guid: 70caba9e65a57444db04bab687ea47f3
+  - enabled: 1
+    path: Assets/Scenes/Level 40.unity
+    guid: f4a2669edbdfc544893dbf31311fc33e
+  - enabled: 1
+    path: Assets/Scenes/Level 41.unity
+    guid: b8d039e1270ae7e45b392e4f0b93efe7
+  - enabled: 1
+    path: Assets/Scenes/Level 42.unity
+    guid: 8d2412795f988474fa6ebf8dc9bdfd9c
+  - enabled: 1
+    path: Assets/Scenes/Level 43.unity
+    guid: b92ab435472a9e44bbbd9ad3d2b6dc94
+  - enabled: 1
+    path: Assets/Scenes/Level 44.unity
+    guid: ba315784d44d967428d472e802e90c77
+  - enabled: 1
+    path: Assets/Scenes/Level 45.unity
+    guid: 9759760aeca039849b879caeca3540db
+  - enabled: 1
+    path: Assets/Scenes/Level 46.unity
+    guid: 8d7611689b679a349bd9f92ce934338c
+  - enabled: 1
+    path: Assets/Scenes/Level 47.unity
+    guid: 58b91182514903d44821ac25dfa85876
+  - enabled: 1
+    path: Assets/Scenes/Level 48.unity
+    guid: 8b9790be54920624b83499bb194d5d3e
+  - enabled: 1
+    path: Assets/Scenes/Level 49.unity
+    guid: d3a4674604d870647932c69c5646ace6
+  - enabled: 1
+    path: Assets/Scenes/Level 50.unity
+    guid: be26079d12b5ddf45b304485164236f6
   m_configObjects: {}
